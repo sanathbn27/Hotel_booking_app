@@ -52,7 +52,6 @@ Supports query params:
 - **Pagination** — We decided **not to apply pagination on the `/dashboard/` API** because the output (aggregated stats) is limited in size by design (e.g., at most 12 monthly or ~365 daily records).  
   However, **the `/events/` API could return a large dataset** (e.g., 65,000+ records).  
   Since filtering by hotel, date, room, and status is supported, users are expected to filter data to manageable chunks.  
-  👉 Pagination could easily be added using Django REST Framework’s pagination classes if scaling becomes an issue in production.
 ---
 
 ## ⚙️ Installation
@@ -83,7 +82,8 @@ docker-compose run web python manage.py migrate
 ## 🚀 How to use
 
 ### Access the app:
-- **Data Provider API & Dashboard API:** [http://localhost:8000](http://localhost:8000)
+- **Data Provider API:** [http://localhost:8000/events](http://localhost:8000/events)
+- **Dashboard API:** [http://localhost:8000/dashboard](http://localhost:8000/dashboard)
 - **Swagger UI:** [http://localhost:8000/swagger/](http://localhost:8000/swagger/)
 
 ### Example queries:

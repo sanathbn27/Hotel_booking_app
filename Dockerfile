@@ -13,7 +13,8 @@ COPY . .
 
 COPY data.csv /app/data.csv
 
+COPY entrypoint.py /entrypoint.py
+ENTRYPOINT ["python", "/entrypoint.py"]
+
 # Default command
 CMD ["gunicorn", "hotel_project.wsgi:application", "--bind", "0.0.0.0:8000"]
-
-RUN python manage.py collectstatic --noinput
